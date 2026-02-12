@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Quiz - Пройди квиз и будь счастлив. Тесты на темперамент, IQ, словарный запас и многое другое!">
+    
+    <title>Super Quiz — Интерактивные тесты и квизы</title>
+
+    <link rel="preload" href="assets/fonts/neuemachina-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/raleway_medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/img/questions_left.webp" as="image">
+    <link rel="preload" href="assets/img/questions_right.webp" as="image">
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/main.css" media="print" onload="this.media='all'">
+    
+    <noscript>
+        <link rel="stylesheet" href="assets/libs/swiper/swiper.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+    </noscript>
+</head>
+<body class="page">
+
+<header class="header">
+    <div class="container header__container">
+        <a href="#" class="logo">Super Quiz</a>
+
+        <button class="header__mobile-btn mobile-btn" type="button" aria-label="Открыть меню">
+            <span class="mobile-btn__line"></span>
+            <span class="mobile-btn__line"></span>
+            <span class="mobile-btn__line"></span>
+        </button>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active"><a href="#hero" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="#quiz" class="nav__link">Квиз</a></li>
+                <li class="nav__item"><a href="#cards" class="nav__link">Отзывы</a></li>
+                <li class="nav__item nav__item--inactive nav__item--dropdown">
+                    <button class="nav__button" type="button" data-dropdown-button>
+                        Не главная
+                    </button>
+
+                    <ul class="nav__dropdown" data-dropdown-menu>
+                        <li class="nav__dropdown-item">
+                            <a href="#" class="nav__dropdown-link">Подпункт 1</a>
+                        </li>
+                        <li class="nav__dropdown-item">
+                            <a href="#" class="nav__dropdown-link">Подпункт 2</a>
+                        </li>
+                        <li class="nav__dropdown-item">
+                            <a href="#" class="nav__dropdown-link">Подпункт 3</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="contact">
+            <button class="button button--primary header__button" data-modal-open>
+                Связаться с нами
+            </button>
+
+            <div class="header__socials">
+                <a href="#" class="header__social-link" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="assets/img/socials/TikTok.webp" type="image/webp">
+                        <img src="assets/img/socials/TikTok.png" alt="TikTok" class="socials__icon" width="40" height="40" loading="lazy">
+                    </picture>
+                </a>
+                <a href="#" class="header__social-link" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="assets/img/socials/Vk.webp" type="image/webp">
+                        <img src="assets/img/socials/Vk.png" alt="ВКонтакте" class="socials__icon" width="40" height="40" loading="lazy">
+                    </picture>
+                </a>
+                <a href="#" class="header__social-link" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="assets/img/socials/Tg.webp" type="image/webp">
+                        <img src="assets/img/socials/Tg.png" alt="Telegram" class="socials__icon" width="40" height="40" loading="lazy">
+                    </picture>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu__container">
+            <div class="mobile-menu__header">
+                <div class="container header__container">
+                    <a href="#" class="logo">
+                        <picture>
+                            <source srcset="assets/img/logo.webp" type="image/webp">
+                            <img src="assets/img/logo.png" alt="Super Quiz" width="150" height="40" class="logo__img">
+                        </picture>
+                    </a>
+                    <button class="header__mobile-btn mobile-btn mobile-menu__close" type="button"
+                            aria-label="Закрыть меню">
+                        <span class="mobile-btn__line"></span>
+                        <span class="mobile-btn__line"></span>
+                        <span class="mobile-btn__line"></span>
+                        <span class="mobile-btn__cross-line"></span>
+                        <span class="mobile-btn__cross-line"></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="mobile-menu__nav">
+                <ul class="mobile-menu__list">
+                    <li class="mobile-menu__item mobile-menu__item--active">
+                        <a href="#" class="mobile-menu__link">Главная</a>
+                        <picture>
+                            <source srcset="assets/img/arrow_mobile.webp" type="image/webp">
+                            <img class="mobile-menu__arrow" src="assets/img/arrow_mobile.png" alt="Стрелка" width="8" height="16" loading="lazy">
+                        </picture>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#quiz" class="mobile-menu__link">Квиз</a>
+                        <picture>
+                            <source srcset="assets/img/arrow_mobile.webp" type="image/webp">
+                            <img class="mobile-menu__arrow" src="assets/img/arrow_mobile.png" alt="Стрелка" width="8" height="16" loading="lazy">
+                        </picture>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#cards" class="mobile-menu__link">Отзывы</a>
+                        <picture>
+                            <source srcset="assets/img/arrow_mobile.webp" type="image/webp">
+                            <img class="mobile-menu__arrow" src="assets/img/arrow_mobile.png" alt="Стрелка" width="8" height="16" loading="lazy">
+                        </picture>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Не главная</a>
+                        <picture>
+                            <source srcset="assets/img/arrow_mobile.webp" type="image/webp">
+                            <img class="mobile-menu__arrow" src="assets/img/arrow_mobile.png" alt="Стрелка" width="8" height="16" loading="lazy">
+                        </picture>
+                    </li>
+
+                    <li class="mobile-menu__row">
+                        <a href="#" class="mobile-menu__link nav__dropdown-link--half">Подпункт</a>
+                        <a href="#" class="mobile-menu__link nav__dropdown-link--half">Еще подпункт</a>
+                    </li>
+
+                    <li class="nav__dropdown-item">
+                        <a href="#" class="mobile-menu__link">И еще один подпункт</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Еще не главная</a>
+                        <picture>
+                            <source srcset="assets/img/arrow_mobile.webp" type="image/webp">
+                            <img class="mobile-menu__arrow" src="assets/img/arrow_mobile.png" alt="Стрелка" width="8" height="16" loading="lazy">
+                        </picture>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu__contacts">
+                <div class="header__socials">
+                    <a href="#" class="header__social-link" target="_blank" rel="noopener noreferrer">
+                        <picture>
+                            <source srcset="assets/img/socials/TikTok.webp" type="image/webp">
+                            <img src="assets/img/socials/TikTok.png" alt="TikTok" class="socials__icon" width="24" height="24" loading="lazy">
+                        </picture>
+                    </a>
+                    <a href="#" class="header__social-link" target="_blank" rel="noopener noreferrer">
+                        <picture>
+                            <source srcset="assets/img/socials/Vk.webp" type="image/webp">
+                            <img src="assets/img/socials/Vk.png" alt="ВКонтакте" class="socials__icon" width="24" height="24" loading="lazy">
+                        </picture>
+                    </a>
+                    <a href="#" class="header__social-link" target="_blank" rel="noopener noreferrer">
+                        <picture>
+                            <source srcset="assets/img/socials/Tg.webp" type="image/webp">
+                            <img src="assets/img/socials/Tg.png" alt="Telegram" class="socials__icon" width="24" height="24" loading="lazy">
+                        </picture>
+                    </a>
+                </div>
+                <button class="button button--primary mobile-menu__button" data-modal-open>
+                    Связаться с нами
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+
+    <section class="hero" id="hero">
+        <div class="hero__bg-left">
+            <picture>
+                <source srcset="assets/img/questions_left.webp" type="image/webp">
+                <img src="assets/img/questions_left.png" alt="" class="hero__bg-image" width="392" height="300" loading="eager">
+            </picture>
+        </div>
+        <div class="mobile-hero__bg-left">
+            <picture>
+                <source srcset="assets/img/mobile-questions_left.webp" type="image/webp">
+                <img src="assets/img/mobile-questions_left.png" alt="" class="hero__bg-image" width="107" height="80" loading="eager">
+            </picture>
+        </div>
+        <div class="hero__bg-right">
+            <picture>
+                <source srcset="assets/img/questions_right.webp" type="image/webp">
+                <img src="assets/img/questions_right.png" alt="" class="hero__bg-image" width="392" height="300" loading="eager">
+            </picture>
+        </div>
+        <div class="container hero__container">
+            <h1 class="hero__title">Это Супер-квиз!</h1>
+            <p class="hero__text">
+                Пройди квиз и будь счастлив. Этот квиз предназначен для тех людей, которые любят проходить тесты!
+            </p>
+            <button class="button button--dark hero__button" data-scroll-to="quiz">
+                Пройти супер-квиз
+            </button>
+        </div>
+    </section>
+
+    <div class="testimonials" id="testimonials">
+        <div class="testimonials__inner">
+            <div class="testimonials__item">
+                <p class="testimonials__text">
+                    <picture>
+                        <source srcset="assets/img/smiles/smile-one.webp" type="image/webp">
+                        <img src="assets/img/smiles/smile-one.png" alt="" width="20" height="20" loading="lazy">
+                    </picture>
+                    Восхитительно
+                </p>
+            </div>
+            <div class="testimonials__item">
+                <p class="testimonials__text">
+                    <picture>
+                        <source srcset="assets/img/smiles/smile-two.webp" type="image/webp">
+                        <img src="assets/img/smiles/smile-two.png" alt="" width="20" height="20" loading="lazy">
+                    </picture>
+                    Лучше не бывает
+                </p>
+            </div>
+            <div class="testimonials__item">
+                <p class="testimonials__text">
+                    <picture>
+                        <source srcset="assets/img/smiles/smile-three.webp" type="image/webp">
+                        <img src="assets/img/smiles/smile-three.png" alt="" width="20" height="20" loading="lazy">
+                    </picture>
+                    Где найти еще?
+                </p>
+            </div>
+            <div class="testimonials__item">
+                <p class="testimonials__text">
+                    <picture>
+                        <source srcset="assets/img/smiles/smile-four.webp" type="image/webp">
+                        <img src="assets/img/smiles/smile-four.png" alt="" width="20" height="20" loading="lazy">
+                    </picture>
+                    В натуре четко!
+                </p>
+            </div>
+            <div class="testimonials__item">
+                <p class="testimonials__text">
+                    <picture>
+                        <source srcset="assets/img/smiles/smile-three.webp" type="image/webp">
+                        <img src="assets/img/smiles/smile-three.png" alt="" width="20" height="20" loading="lazy">
+                    </picture>
+                    Круто
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="quiz" id="quiz">
+        <div class="container quiz__container">
+            <div class="quiz__questions">
+                <div class="quiz__question" data-question="1">
+                    <div class="quiz__question-box">
+                        <div class="quiz__question-title">Какие виды тестов вам нравятся?</div>
+                        <p class="quiz__text">Кто я из вселенной Марвел, На словарный запас</p>
+                    </div>
+                </div>
+                <div class="quiz__question" data-question="2">
+                    <div class="quiz__question-box">
+                        <div class="quiz__question-title">Вы любите проходить тесты?</div>
+                        <p class="quiz__text">Да, я прохожу все тесты</p>
+                    </div>
+                </div>
+                <div class="quiz__question" data-question="3">
+                    <div class="quiz__question-box">
+                        <div class="quiz__question-title">Какие виды тестов вам нравятся?</div>
+                        <p class="quiz__text">Кто я из вселенной Марвел, На словарный запас</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz__cards">
+                <div class="quiz__cards-back quiz__cards-back--first"></div>
+                <div class="quiz__cards-back quiz__cards-back--second"></div>
+                
+                <div class="quiz__card" data-card="1">
+                    <div class="quiz__box">
+                        <h2 class="quiz__title">Какие виды тестов вам нравятся?</h2>
+                        <p class="quiz__feedback-text">Многие из нас хоть раз попадались на эту удочку — хочешь пройти всего один тест из интернета, и вдруг понимаешь, что пролетело полдня.</p>
+
+                        <div class="quiz__options">
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="temperament">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">На темперамент</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="marvel">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">Кто я из вселенной Марвел</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="see">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">Увидел это</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="animal">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">Мое тотемное животное</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="iq">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">На IQ</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="vocabulary">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">На словарный запас</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="logic">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">На логическое мышление</span>
+                            </label>
+                            <label class="quiz__checkbox">
+                                <input type="checkbox" class="quiz__checkbox-input" name="quiz-option" value="intelligence">
+                                <span class="quiz__checkbox-box"></span>
+                                <span class="quiz__checkbox-text">На уровень интеллекта</span>
+                            </label>
+                        </div>
+
+                        <button class="button button--dark quiz__submit" data-next="2">
+                            Продолжить
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quiz__card" data-card="2">
+                    <div class="quiz__box">
+                        <h2 class="quiz__title">Вы любите проходить тесты?</h2>
+                        <p class="quiz__feedback-text">Нам важно узнать насколько часто Вы проходите тесты.</p>
+
+                        <div class="quiz__options quiz__options--radio">
+                            <label class="quiz__radio">
+                                <input type="radio" class="quiz__radio-input" name="quiz-radio-2" value="option1">
+                                <span class="quiz__radio-circle"></span>
+                                <span class="quiz__radio-text">Вариант 1</span>
+                            </label>
+                            <label class="quiz__radio">
+                                <input type="radio" class="quiz__radio-input" name="quiz-radio-2" value="option2">
+                                <span class="quiz__radio-circle"></span>
+                                <span class="quiz__radio-text">Вариант 2</span>
+                            </label>
+                            <label class="quiz__radio">
+                                <input type="radio" class="quiz__radio-input" name="quiz-radio-2" value="option3">
+                                <span class="quiz__radio-circle"></span>
+                                <span class="quiz__radio-text">Вариант 3</span>
+                            </label>
+                            <label class="quiz__radio">
+                                <input type="radio" class="quiz__radio-input" name="quiz-radio-2" value="option4">
+                                <span class="quiz__radio-circle"></span>
+                                <span class="quiz__radio-text">Вариант 4</span>
+                            </label>
+                        </div>
+
+                        <div class="quiz__actions">
+                            <button class="button button--outline quiz__back" data-back="1">
+                                Назад
+                            </button>
+                            <button class="button button--dark quiz__submit" data-next="3" disabled>
+                                Продолжить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz__card" data-card="3">
+                    <div class="quiz__box quiz__box--feedback">
+                        <h2 class="quiz__title">Спасибо за ответы! Заполните форму ниже</h2>
+                        <p class="quiz__feedback-text">Ваше мнение важно для нас. Оставьте комментарий насколько понравился Вам тест.</p>
+
+                        <div class="quiz__feedback-form">
+                            <div class="quiz__feedback-field">
+                                <label for="feedback-message" class="quiz__feedback-label">Ваше мнение сюда</label>
+                                <input type="text" id="feedback-message" class="quiz__feedback-input" placeholder="Очень понравился">
+                            </div>
+
+                            <div class="quiz__feedback-selector">
+                                <span class="quiz__selector-label">Очень понравился</span>
+                                <div class="quiz__selector-dropdown">
+                                    <div class="quiz__selector-option quiz__selector-option--selected" data-value="very-good">Очень понравился</div>
+                                    <div class="quiz__selector-option" data-value="not-good">Не понравился</div>
+                                    <div class="quiz__selector-option" data-value="again">Пройду еще раз</div>
+                                    <div class="quiz__selector-option" data-value="recommend">Посоветую пройти всем</div>
+                                </div>
+                                <span class="quiz__selector-arrow">▼</span>
+                            </div>
+                        </div>
+
+                        <div class="quiz__actions quiz__actions--feedback">
+                            <button class="button button--outline quiz__back" data-back="2">Назад</button>
+                            <button class="button button--dark quiz__submit" data-modal-open disabled>Продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cards" id="cards">
+        <div class="container cards__container">
+            <div class="swiper cards__slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <article class="card card--evening">
+                            <div class="card__avatar-wrapper">
+                                <div class="card__avatar">
+                                    <picture>
+                                        <source srcset="assets/img/avatars/avatar-andrey.webp" type="image/webp">
+                                        <img src="assets/img/avatars/avatar-andrey.png" alt="Андрей Пархимович" width="80" height="80" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">Андрей Пархимович</h3>
+                                <p class="card__text">В целом, конечно, постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card card--cloudy">
+                            <div class="card__avatar-wrapper">
+                                <div class="card__avatar">
+                                    <picture>
+                                        <source srcset="assets/img/avatars/avatar-timur.webp" type="image/webp">
+                                        <img src="assets/img/avatars/avatar-timur.png" alt="Тимур Никитенко" width="80" height="80" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">Тимур Никитенко</h3>
+                                <p class="card__text">Господа, глубокий уровень погружения в значительный степени обусловливает важность глубокомысленных рассуждений и повышения качества принимаемых решений.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card card--evening">
+                            <div class="card__avatar-wrapper">
+                                <div class="card__avatar">
+                                    <picture>
+                                        <source srcset="assets/img/avatars/avatar-artur.webp" type="image/webp">
+                                        <img src="assets/img/avatars/avatar-artur.png" alt="Артур Усович" width="80" height="80" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">Артур Усович</h3>
+                                <p class="card__text">Задача организации, в особенности ее убеждения, не только на основе оппонентов, но и непосредственно в процессе их обсуждения.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card card--cloudy">
+                            <div class="card__avatar-wrapper">
+                                <div class="card__avatar">
+                                    <picture>
+                                        <source srcset="assets/img/avatars/avatar-artur.webp" type="image/webp">
+                                        <img src="assets/img/avatars/avatar-artur.png" alt="Артур Усович" width="80" height="80" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">Артур Усович</h3>
+                                <p class="card__text">Задача организации, в особенности ее убеждения, не только на основе оппонентов, но и непосредственно в процессе их обсуждения.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card card--evening">
+                            <div class="card__avatar-wrapper">
+                                <div class="card__avatar">
+                                    <picture>
+                                        <source srcset="assets/img/avatars/avatar-artur.webp" type="image/webp">
+                                        <img src="assets/img/avatars/avatar-artur.png" alt="Артур Усович" width="80" height="80" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">Артур Усович</h3>
+                                <p class="card__text">Задача организации, в особенности ее убеждения, не только на основе оппонентов, но и непосредственно в процессе их обсуждения.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="swiper-button-prev cards__nav-btn--prev"></div>
+                <div class="swiper-button-next cards__nav-btn--next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer__container">
+        <div class="footer__socials">
+            <div class="footer__info">
+                <div class="footer__contact-group">
+                    <span class="footer__contact-label">Телефон</span>
+                    <a href="tel:+375123456789" class="footer__contact-value">+375 12 345 67 89</a>
+                </div>
+                <div class="footer__contact-group">
+                    <span class="footer__contact-label">Email</span>
+                    <a href="mailto:ourmail@gmail.com" class="footer__contact-value">ourmail@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer__socials-img">
+                <picture>
+                    <source srcset="assets/img/socials/TikTokFooter.webp" type="image/webp">
+                    <img class="footer__img" src="assets/img/socials/TikTokFooter.png" alt="TikTok" width="95" height="36" loading="lazy">
+                </picture>
+                <picture>
+                    <source srcset="assets/img/socials/VkFooter.webp" type="image/webp">
+                    <img class="footer__img" src="assets/img/socials/VkFooter.png" alt="ВКонтакте" width="95" height="36" loading="lazy">
+                </picture>
+                <picture>
+                    <source srcset="assets/img/socials/TgFooter.webp" type="image/webp">
+                    <img class="footer__img" src="assets/img/socials/TgFooter.png" alt="Telegram" width="95" height="36" loading="lazy">
+                </picture>
+            </div>
+        </div>
+        <div class="footer__logo-wrapper">
+            <a href="#" class="footer__logo">Super Quiz</a>
+        </div>
+    </div>
+</footer>
+
+<div class="modal" id="contactModal">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__container">
+        <button class="modal__close" data-modal-close aria-label="Закрыть">
+            <span class="modal__close-line"></span>
+            <span class="modal__close-line"></span>
+        </button>
+        <div class="modal__content">
+            <h2 class="modal__title">Заполните контактные данные</h2>
+            <p class="modal__description">Пройди квиз, и будешь счастлив. Этот квиз предназначен для тех людей, которые любят проходить тесты!</p>
+
+            <form class="modal__form">
+                <div class="modal__form-row">
+                    <div class="modal__field-group">
+                        <input type="text" class="modal__input" placeholder="Ваше имя">
+                    </div>
+                    <div class="modal__field-group">
+                        <input type="text" class="modal__input" placeholder="Фамилия">
+                    </div>
+                </div>
+
+                <div class="modal__comment-row">
+                    <div class="modal__field-group modal__comment-field">
+                        <input type="text" class="modal__input" placeholder="Ваш комментарий">
+                    </div>
+                    <div class="modal__file-wrapper">
+                        <input type="file" id="modal-file" class="modal__file-input">
+                        <label for="modal-file" class="modal__file-button button button--dark">
+                            <span class="modal__file-text open">Приложить файлы</span>
+                            <span class="modal__file-icon">
+                                <picture>
+                                    <source srcset="assets/img/modals/paperclip2.webp" type="image/webp">
+                                    <img src="assets/img/modals/paperclip2.png" alt="Прикрепить файл" width="20" height="20" loading="lazy">
+                                </picture>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal__radio-group">
+                    <p class="modal__radio-description modal__description">Этот квиз предназначен для тех людей, которые любят проходить тесты!</p>
+                    <div class="modal__radio-options">
+                        <label class="modal__radio">
+                            <input type="radio" name="modal-quiz" class="modal__radio-input">
+                            <span class="modal__radio-circle"></span>
+                            <span class="modal__radio-text">Не знаю</span>
+                        </label>
+                        <label class="modal__radio">
+                            <input type="radio" name="modal-quiz" class="modal__radio-input">
+                            <span class="modal__radio-circle"></span>
+                            <span class="modal__radio-text">Увидел это</span>
+                        </label>
+                        <label class="modal__radio">
+                            <input type="radio" name="modal-quiz" class="modal__radio-input">
+                            <span class="modal__radio-circle"></span>
+                            <span class="modal__radio-text">Вон то</span>
+                        </label>
+                        <label class="modal__radio">
+                            <input type="radio" name="modal-quiz" class="modal__radio-input">
+                            <span class="modal__radio-circle"></span>
+                            <span class="modal__radio-text">Увидел это</span>
+                        </label>
+                        <label class="modal__radio">
+                            <input type="radio" name="modal-quiz" class="modal__radio-input">
+                            <span class="modal__radio-circle"></span>
+                            <span class="modal__radio-text">Не знаю</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="modal__submit button button--dark">Продолжить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="successModal">
+    <div class="modal__overlay" data-success-close></div>
+    <div class="modal__container modal__container--success">
+        <button class="modal__close" data-success-close aria-label="Закрыть">
+            <span class="modal__close-line"></span>
+            <span class="modal__close-line"></span>
+        </button>
+        <div class="modal__content modal__content--success">
+            <div class="modal__success-icon">
+                <picture>
+                    <source srcset="assets/img/smiles/smile-success.webp" type="image/webp">
+                    <img src="assets/img/smiles/smile-success.png" alt="Успешно" width="128" height="128" loading="lazy">
+                </picture>
+            </div>
+            <h2 class="modal__title modal__title--success">Ваши данные Отправлены</h2>
+            <p class="modal__description modal__description--success">Пройди квиз, и будешь счастлив. Этот квиз предназначен для тех людей, которые любят проходить тесты!</p>
+            <button class="modal__success-button button button--dark" data-success-close>Вернуться на сайт</button>
+        </div>
+    </div>
+</div>
+
+<script src="assets/libs/swiper/swiper.min.js" defer></script>
+<script src="assets/js/headerDropDownMenu.js" defer></script>
+<script src="assets/js/headerMenu.js" defer></script>
+<script src="assets/js/heroSection.js" defer></script>
+<script src="assets/js/quiz.js" defer></script>
+<script src="assets/js/mainSwiper.js" defer></script>
+<script src="assets/js/modals.js" defer></script>
+
+</body>
+</html>
